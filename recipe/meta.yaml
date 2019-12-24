@@ -1,18 +1,18 @@
 {% set name = "sphinx-confluence" %}
-{% set version = "v0.0.3" %}
+{% set version = "0.0.3" %}
 
 package:
   name: {{ name|lower }}
-  version: {{ version }}
+  version: v{{ version }}
 
 source:
-  url: https://github.com/Arello-Mobile/{{ name }}/archive/{{ version }}.tar.gz
+  url: https://github.com/Arello-Mobile/{{ name }}/archive/v{{ version }}.tar.gz
   sha256: 597fe3900c4b5f29c08344959a5a603bde812a7f05f651f329ead18a2c70a7ee
 
 build:
   noarch: python
   number: 0
-  script: python -m pip install --no-deps --ignore-installed .
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   host:
