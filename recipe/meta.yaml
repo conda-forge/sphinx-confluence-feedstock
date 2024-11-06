@@ -1,18 +1,18 @@
 {% set name = "sphinx-confluence" %}
-{% set version = "v0.0.3" %}
+{% set version = "0.0.4" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/Arello-Mobile/{{ name }}/archive/{{ version }}.tar.gz
-  sha256: 597fe3900c4b5f29c08344959a5a603bde812a7f05f651f329ead18a2c70a7ee
+  url: https://github.com/Arello-Mobile/{{ name }}/archive/v{{ version }}.tar.gz
+  sha256: 0a81df5cb46e6357274db58dbc38f407ca075a0dc3cdf7d2a8341a0d8a743461
 
 build:
   noarch: python
   number: 0
-  script: python -m pip install --no-deps --ignore-installed .
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   host:
@@ -32,7 +32,7 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  summary: 'Sphinx extension for making the documentation compatible with the Confluence Storage Format.'
+  summary: Sphinx extension for making the documentation compatible with the Confluence Storage Format.
 
   description: |
     This extension is written as part of our Documentation Toolkit which
